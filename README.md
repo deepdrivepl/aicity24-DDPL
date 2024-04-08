@@ -81,6 +81,7 @@ In order to train the Co-DETR model, you can either download the already augment
    pix2pix
    ```
    cd /aicity/3rdparty/instruct-pix2pix
+   ./scripts/download_checkpoints.sh
    python generate-FE8K.py
    ```
 
