@@ -1,11 +1,29 @@
 # aicity24-DDPL
-![TOP6](images/res-val-TOP-6.png)
+
+ ![TOP6](images/res-val-TOP-6.png)
+
+This repository presents training and testing code prepared by us as part of the [AiCityChallenge2024](https://www.aicitychallenge.org) (Track 4: Road Object Detection in Fish-Eye Cameras). \
+We focused on utilizing additional traffic-oriented datasets and transforming them to make them similar to FishEye8K. You can:
+- Download only the original dataset, COCO-style annotations, and our pre-trained model to run inference and compute metrics.
+- Download the entire augmented training set and run training according to our strategy.
+- Download only the original data, generate the transformed images yourself, and run training.
+
 
 ## Run inference using a trained Co-DETR model
+Originally, the FishEye8K dataset is divided into train (5288 images) and validation (2712 iamges) splits.\
+We kept all 2712 validation images as a local test set, and for validation, we extracted 2 whole sequences (621 images).
+So in our code, and data, the following terms are used: 
+- train - 4667 images
+- validation - 621 images (originally part of the train set)
+- test - 2712 images
+- test-challenge - 1000 images (without annotations)\
 
-### get data 
+To reproduce the values presented in the leaderboard, you need to download the FishEye8K dataset along with the annotations in a coco format, and our best Co-DETR model.
 
-### run inference
+### Download data
+
+### Run inference
+First build and run the 
 ```
 cd scripts/mmdet
 ./build_and_run.sh
