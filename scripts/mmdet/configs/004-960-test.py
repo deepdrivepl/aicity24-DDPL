@@ -558,7 +558,7 @@ test_evaluator = dict(
         'bbox',
     ],
     outfile_prefix=
-    '/aicity/results/FishEye8K/mmdet/codetr/004-960-FishEye8k_VD_UAVDT_WD_aug-co_dino-swinl-16-detr-bs4/test',
+    '/aicity/scripts/mmdetr/training/004-960-FishEye8k_VD_UAVDT_WD_aug-co_dino-swinl-16-detr-bs4/test',
     type='CocoMetric')
 test_pipeline = [
     dict(type='LoadImageFromFile'),
@@ -1353,4 +1353,4 @@ visualizer = dict(
         dict(type='LocalVisBackend'),
         dict(type='TensorboardVisBackend'),
     ])
-work_dir = '/aicity/results/FishEye8K/mmdet/codetr/004-960-FishEye8k_VD_UAVDT_WD_aug-co_dino-swinl-16-detr-bs4/test'
+work_dir = '/aicity/scripts/mmdetr/training/004-960-FishEye8k_VD_UAVDT_WD_aug-co_dino-swinl-16-detr-bs4/test'

@@ -34,7 +34,7 @@ image_size = (
     960,
 )
 launcher = 'none'
-load_from = '/aicity/results/FishEye8K/mmdet/codetr/004-960-FishEye8k_VD_UAVDT_WD_aug-co_dino-swinl-16-detr-bs4/epoch_3.pth'
+load_from = '/aicity/scripts/mmdetr/training/004-960-FishEye8k_VD_UAVDT_WD_aug-co_dino-swinl-16-detr-bs4/epoch_3.pth'
 load_pipeline = [
     dict(type='LoadImageFromFile'),
     dict(type='LoadAnnotations', with_bbox=True, with_mask=True),
