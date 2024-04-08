@@ -91,6 +91,8 @@ In order to train the Co-DETR model, you can either download the already augment
    cd /aicity/3rdparty/pytorch-neural-style-transfer
    python style_transfer_FE8K.py
    ```
+3. Generate COCO.json
+   convert all labels for augmented images to coco format
    
 ### Run training
 
