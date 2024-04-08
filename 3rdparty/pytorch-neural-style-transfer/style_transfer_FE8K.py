@@ -10,6 +10,8 @@ import numpy as np
 import os
 import argparse
 import cv2
+import contextlib
+from shutil import copyfile
 
 
 def build_loss(neural_net, optimizing_img, target_representations, content_feature_maps_index, style_feature_maps_indices, config):
@@ -139,10 +141,10 @@ if __name__ == "__main__":
     parser.add_argument("--init_method", type=str, choices=['random', 'content', 'style'], default='content')
     parser.add_argument("--saving_freq", type=int, help="saving frequency for intermediate images (-1 means only final)", default=-1)
     
-    parser.add_argument("--input_list", type=str, default="/mnt/ssd8/ola/aicity/data/FishEye8K/train-minus-val-fractal.txt")
+    parser.add_argument("--input_list", type=str, default="/aicity/data/train-minus-val.txt")
     parser.add_argument("--source_time", type=str, default="A")
     parser.add_argument("--dest_time", nargs='+', default=["E", "M", "N"])
-    parser.add_argument("--out_dir", type=str, default="/mnt/ssd8/ola/aicity/data/FishEye8K/train-minus-val/aug-every-10")
+    parser.add_argument("--out_dir", type=str, default="/aicity/data/augmented")
     args = parser.parse_args()
 
     N = 10
@@ -173,8 +175,11 @@ if __name__ == "__main__":
     
     for i,source_path in tqdm(enumerate(sources)):
         
+        lbl_path_src = source_path.replace('images', 'labels').replace('.png', '.txt').replace('.jpg', '.txt')
+        
+        
         for style_name, style_list in dests.items():
-            out_dir_ = os.path.join(args.out_dir, style_name)
+            out_dir_ = args.out_dir
             os.makedirs(out_dir_, exist_ok=True)
             
             style_path = random.sample(style_list, 1)[0]
@@ -184,5 +189,10 @@ if __name__ == "__main__":
             cont_fname, cont_ext = os.path.splitext(os.path.basename(source_path))
             style_fname = os.path.splitext(os.path.basename(style_path))[0]
             dump_path = f"{out_dir_}/{cont_fname}_{style_fname}{cont_ext}"
+           
+            with contextlib.redirect_stdout(None):
+                results_path = neural_style_transfer(optimization_config, style_path, source_path, dump_path)
 
-            results_path = neural_style_transfer(optimization_config, style_path, source_path, dump_path)
+            if os.path.isfile(results_path):
+                lbl_path_dst = dump_path.replace('.png', '.txt').replace('.jpg', '.txt')
+                copyfile(lbl_path_src, lbl_path_dst)
