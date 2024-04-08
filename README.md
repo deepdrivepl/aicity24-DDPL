@@ -1,4 +1,4 @@
-# aicity24-DDPL
+# AiCity24 DeepDrivePL
 
 This repository presents training and testing code prepared by us as part of the [AiCityChallenge2024](https://www.aicitychallenge.org) (Track 4: Road Object Detection in Fish-Eye Cameras). \
 We focused on utilizing additional traffic-oriented datasets and transforming them to make them similar to FishEye8K. You can:
@@ -78,14 +78,15 @@ In order to train the Co-DETR model, you can either download the already augment
    ```
 5. Run GAN-based data augmentation
 
-   pix2pix
+   [pix2pix](https://github.com/timothybrooks/instruct-pix2pix)
    ```
    cd /aicity/3rdparty/instruct-pix2pix
+   chmod +x ./scripts/download_checkpoints.sh
    ./scripts/download_checkpoints.sh
    python generate-FE8K.py
    ```
 
-   style transfer
+   [style transfer](https://github.com/gordicaleksa/pytorch-neural-style-transfer)
    ```
    cd /aicity/3rdparty/pytorch-neural-style-transfer
    python style_transfer_FE8K.py
