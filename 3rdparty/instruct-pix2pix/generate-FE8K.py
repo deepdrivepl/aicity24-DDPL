@@ -4,6 +4,7 @@ import os
 import sys
 import random
 import cv2
+import contextlib
 from shutil import copyfile
 from collections import defaultdict
 
@@ -54,6 +55,3 @@ for cam, input_images in tqdm(cam2flist.items()):
             os.system(f"python edit_cli.py --input {input_image} --output {out_path} --edit '{prompt}' --resolution {int(0.75*(min(H,W)))}") 
             if os.path.isfile(out_path):
                 copyfile(lbl_source_path, lbl_dest_path)
-#             break
-#         break
-#     break

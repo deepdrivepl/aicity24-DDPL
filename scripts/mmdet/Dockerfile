@@ -38,16 +38,14 @@ RUN conda clean --all \
 RUN apt-get update && apt-get install -y curl wget
     
 # data aug dependencies
-RUN pip install --no-cache-dir albumentations diffusers kornia 
-RUN pip install --no-cache-dir pudb==2019.2 
-RUN pip install --no-cache-dir test-tube>=0.7.5 streamlit>=0.73.1 torch-fidelity==0.3.0 
-RUN pip install --no-cache-dir transformers==4.19.2 einops==0.3.0 omegaconf 
-RUN pip install --no-cache-dir pytorch-lightning==1.4.2 torchmetrics==0.6.0
+RUN pip install --no-cache-dir albumentations diffusers kornia \
+    pudb==2019.2 test-tube>=0.7.5 streamlit>=0.73.1 torch-fidelity==0.3.0 \
+    transformers==4.19.2 einops==0.3.0 omegaconf pytorch-lightning==1.4.2 torchmetrics==0.6.0 \
+    Cython==3.0.0a10 git+https://github.com/crowsonkb/k-diffusion.git 
+
 RUN pip install --no-cache-dir -e git+https://github.com/CompVis/taming-transformers.git@master#egg=taming-transformers
 RUN pip install --no-cache-dir -e git+https://github.com/openai/CLIP.git@main#egg=clip
-RUN pip install --no-cache-dir git+https://github.com/crowsonkb/k-diffusion.git
 RUN pip uninstall pycocotools -y 
-RUN pip install --no-cache-dir Cython==3.0.0a10 
 RUN pip install --no-cache-dir git+https://github.com/deepdrivepl/FE8K-eval.git
 
 WORKDIR /mmdetection
