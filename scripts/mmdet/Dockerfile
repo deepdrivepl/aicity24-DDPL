@@ -42,4 +42,9 @@ RUN conda clean --all \
     && cd /mmdetection \
     && pip install --no-cache-dir -e .
 
+RUN git clone https://github.com/deepdrivepl/FE8K-eval.git \
+    && cd FE8K-eval \
+    && pip install .
+
 WORKDIR /mmdetection
+
