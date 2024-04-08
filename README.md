@@ -22,7 +22,7 @@ The provided script will filter detections according to class-dependent confiden
 ```
 {'Bike': 0.4, 'Bus': 0.5, 'Car': 0.5, 'Pedestrian': 0.4, 'Truck': 0.45}
 ```
-If `--split` is different from "test-challenge", and `--skip_metrics` is not specified, the script will also calcuate metrics for the specified detection file `--detections`.
+If `--split` is different from "test-challenge", and `--skip_metrics` is not specified, the script will also calculate metrics for the specified detection file `--detections`.
 
 ```
 cd /aicity/scripts
