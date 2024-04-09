@@ -50,7 +50,7 @@ for cam, input_images in tqdm(cam2flist.items()):
             out_path = input_image.replace(os.path.dirname(input_image), output_dir)
             out_path = out_path.replace('.png', f'-{i}.png').replace('.jpg', f'-{i}.jpg')
             lbl_source_path = input_image.replace('images', 'labels').replace('.png', '.txt').replace('.jpg', '.txt')
-            lbl_dest_path = out_path.replace('.png', f'-{i}.txt').replace('.jpg', f'-{i}.txt')
+            lbl_dest_path = out_path.replace('.png', '.txt').replace('.jpg', '.txt')
             print(f"python edit_cli.py --input {input_image} --output {out_path} --edit '{prompt}'  --resolution {int(0.75*(min(H,W)))}")
             os.system(f"python edit_cli.py --input {input_image} --output {out_path} --edit '{prompt}' --resolution {int(0.75*(min(H,W)))}") 
             if os.path.isfile(out_path):
