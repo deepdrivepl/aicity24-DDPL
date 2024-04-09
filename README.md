@@ -78,21 +78,32 @@ In order to train the Co-DETR model, you can either download the already augment
    ```
 5. Run GAN-based data augmentation
 
+
    [pix2pix](https://github.com/timothybrooks/instruct-pix2pix)
+   
+   ![pix2pix](images/train-aug-FE8K-pix2pix-v2.png)
+   
    ```
    cd /aicity/3rdparty/instruct-pix2pix
-   chmod +x ./scripts/download_checkpoints.sh
    ./scripts/download_checkpoints.sh
    python generate-FE8K.py
    ```
 
    [style transfer](https://github.com/gordicaleksa/pytorch-neural-style-transfer)
+   
+   ![style transfer](images/train-aug-FE8K.png)
+   
    ```
    cd /aicity/3rdparty/pytorch-neural-style-transfer
    python style_transfer_FE8K.py
    ```
+   
 3. Generate COCO.json
-   convert all labels for augmented images to coco format
+
+   The script will copy all the augmented images to the specified --out_dir, along with the annotations in COCO format. 
+   ```
+   python convert2coco.py --out_dir ../data/augmented-all
+   ```
    
 ### Run training
 
