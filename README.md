@@ -70,6 +70,7 @@ In order to train the Co-DETR model, you can either download the already augment
 
 ### Download augmented dataset
 
+Dataset can be downloaded from https://archive.org/details/006-epoch-7
 
 ### Generate augmented dataset
 
@@ -120,3 +121,6 @@ Our training strategy is as follows:
 
 Run `/aicity/scripts/mmdet/train-mmdet-codetr.sh` to reproduce the above training strategy, but keep in mind that you may need to adjust the `load_from path` in each of the config files (as well as dataset paths if you generated the dataset yourself). We selected the best checkpoints for fine-tuning based on F1 score.
 
+## Submitted model
+
+Our final submitted model can be downloaded from https://archive.org/details/006-epoch-7
