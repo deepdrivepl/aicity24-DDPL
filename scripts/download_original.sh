@@ -1,6 +1,6 @@
 #!/bin/bash
 
-OUT_DIR="/aicity/data-new"
+OUT_DIR="/aicity/data"
 
 mkdir -p $OUT_DIR
 
