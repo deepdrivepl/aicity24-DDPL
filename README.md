@@ -33,8 +33,11 @@ To reproduce the values presented in the leaderboard, you need to download the F
 
 ### Download data
 
-1. Download and extract the trained Co-DETR model
-2. Download and extract the original (non-augmented) FishEye8K dataset
+Download and extract the original (non-augmented) FishEye8K dataset
+   ```console
+   cd /aicity/scripts
+   ./download_FE8K.sh
+   ```
 
 
 ### Run inference
@@ -70,12 +73,20 @@ In order to train the Co-DETR model, you can either download the already augment
 
 ### Download augmented dataset
 
-Dataset can be downloaded from https://archive.org/details/006-epoch-7
+```console
+cd /aicity/scripts
+./download_augmented.sh
+```
+
 
 ### Generate augmented dataset
 
 1. Download non-augmented datasets
-2. Run distortion (VisDrone, UAVDT)
+   ```console
+   cd /aicity/scripts
+   ./download_original.sh
+   ```
+3. Run distortion (VisDrone, UAVDT)
    ```console
    cd /aicity/scripts
    python gen_distorted.py --debug
