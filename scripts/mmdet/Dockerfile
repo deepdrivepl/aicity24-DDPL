@@ -51,6 +51,7 @@ RUN pip install --no-cache-dir albumentations diffusers kornia \
 RUN pip install --no-cache-dir -e git+https://github.com/CompVis/taming-transformers.git@master#egg=taming-transformers
 RUN pip install --no-cache-dir -e git+https://github.com/openai/CLIP.git@main#egg=clip
 RUN pip uninstall pycocotools -y 
+RUN pip install cython
 RUN pip install git+https://github.com/deepdrivepl/FE8K-eval.git
 
 WORKDIR /mmdetection
