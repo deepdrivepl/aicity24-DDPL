@@ -11,7 +11,7 @@ python /aicity/3rdparty/yolov7/train_aux.py \
 
 python /aicity/3rdparty/yolov7/test.py \
 --img 1280 --conf 0.001 --iou 0.65 --batch 32 --device 0 \
---data /aicity/scripts/yolo/FishEye/FishEye8K-train.yaml \
+--data /aicity/scripts/yolo/FishEye8K-train.yaml \
 --weights /aicity/results/yolo/yolov7e6e-1280-baseline/weights/best.pt \
 --project /aicity/results/yolo \
 --name yolov7e6e-1280-baseline/test \
