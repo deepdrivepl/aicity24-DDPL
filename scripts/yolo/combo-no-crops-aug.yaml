@@ -1,0 +1,10 @@
+# train and val datasets (image directory or *.txt file with image paths)
+train: /aicity/data/train_VD-distorted-aug_UAVDT-distorted-aug_WoodScapes-aug_FE8K-aug-orig-fractal.txt
+val: /aicity/data/FishEye8K/val-fractal.txt 
+test: /aicity/data/FishEye8K/test-fractal.txt 
+
+# number of classes
+nc: 5
+
+# class names
+names: ["Bus", "Bike", "Car", "Pedestrian", "Truck"]
